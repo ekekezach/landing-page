@@ -436,7 +436,7 @@
     }
     .gallery-item {
       position: relative; overflow: hidden;
-      background: var(--dark); cursor: pointer;
+      background: var(--dark);
     }
     .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
     .gallery-item img {
@@ -857,7 +857,7 @@
     }
     @media (max-width:480px){
       .bento-guide{ flex-direction:column; }
-      .guide-cover{ width:100%; aspect-ratio:16/9; }
+      .guide-cover{ width:100%; max-width:220px; aspect-ratio:3/4; }
     }
   </style>
   <link rel="canonical" href="https://ekekezach.github.io/landing-page/" />
@@ -1263,24 +1263,7 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => revealObserver.observe(el));
 
-  /* ── GALLERY LIGHTBOX ── */
-  const lightbox      = document.getElementById('lightbox');
-  const lightboxImg   = document.getElementById('lightbox-img');
-  const lightboxClose = document.getElementById('lightbox-close');
-  document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
-    item.addEventListener('click', () => {
-      lightboxImg.src = item.dataset.src;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  /* ── GALLERY LIGHTBOX (disabled — work photos are no longer clickable) ── */
 </script>
 
 <script>
