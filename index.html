@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    window.scrollTo(0, 0);
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zach Ekeke — Commercial Model & Personal Trainer | London</title>
@@ -322,6 +326,12 @@
     .about-photo .about-photo-title{
       color:rgba(185,178,166,0.75); text-transform:uppercase;
       letter-spacing:0.18em; font-size:clamp(1.6rem,3vw,2.4rem);
+    }
+    @media (max-width:820px){
+      .about-photo .about-photo-title{ font-size:clamp(1.1rem,6vw,1.6rem); letter-spacing:0.12em; }
+    }
+    @media (max-width:400px){
+      .about-photo .about-photo-title{ font-size:1.05rem; letter-spacing:0.08em; }
     }
     .about-photo-title-kicker{
       display:block; font-family:var(--font-body); font-weight:500;
@@ -704,6 +714,23 @@
     .menu-socials {
       display: flex; gap: 1.5rem; margin-top: auto;
     }
+    .menu-trusted{
+      position: relative; z-index: 1; margin-top: 1.75rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .menu-trusted-label{
+      font-family: var(--font-body); font-size: 0.56rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--accent); font-weight: 500;
+    }
+    .menu-trusted-marquee{
+      width: 100%; max-width: 340px; overflow: hidden; margin: 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .menu-trusted-marquee .partner-logo-chip{ height: 20px; background: rgba(255,255,255,0.06); }
+    .menu-trusted-marquee .partner-logo-chip img{ height: 11px; }
+    .menu-trusted-marquee .partner-name-inline{ font-size: 0.62rem; }
     .menu-socials a {
       width: 48px; height: 48px;
       border-radius: 50%;
@@ -769,7 +796,13 @@
     .accent-letter{ color:#ffffff; }
     .hero-eyebrow{ font-size:0.66rem; letter-spacing:0.42em; color:var(--accent); font-weight:500; }
     .hero-role{ font-size:0.7rem; letter-spacing:0.32em; color:var(--silver); font-weight:400; }
-    @media (max-width:600px){ .hero-role{ letter-spacing:0.14em; } }
+    @media (max-width:600px){
+      .hero-role{ letter-spacing:0.14em; }
+      .hero-name{ font-size:1.5rem; padding:0 1.5rem; letter-spacing:0; }
+    }
+    @media (max-width:400px){
+      .hero-name{ font-size:1.3rem; padding:0 1.25rem; }
+    }
     .hero-bg::after{ display:none; }
     .hero-bg-overlay{ background:radial-gradient(125% 95% at 50% 32%, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.60) 68%, rgba(0,0,0,0.80) 100%); }
     /* ── TRUSTED BAR (fixed header strip) ── */
@@ -802,8 +835,8 @@
       nav.scrolled{ top:34px !important; }
     }
     @media (max-width:480px){
-      #trusted-bar{ padding:0 1rem; }
-      #trusted-bar .trusted-bar-label{ display:none; }
+      #trusted-bar{ padding:0 0.85rem; }
+      #trusted-bar .trusted-bar-label{ font-size:0.44rem; letter-spacing:0.14em; }
     }
     nav{ padding: 1.5rem clamp(1.5rem,4vw,4rem); }
     .nav-logo{ font-family:'Cormorant Garamond', Georgia, serif; font-weight:500; font-size:1.7rem; letter-spacing:0.06em; }
@@ -1014,9 +1047,7 @@
     }
     .format-toggle-btn.active{ color:#0a0a0a; }
     @media (max-width:640px){
-      .format-toggle{ overflow-x:auto; scrollbar-width:none; max-width:100%; }
-      .format-toggle::-webkit-scrollbar{ display:none; }
-      .format-toggle-btn{ padding:0.6rem 0.95rem; font-size:0.56rem; }
+      .format-toggle-btn{ padding:0.6rem 0.85rem; font-size:0.56rem; }
     }
     .format-grid{
       display:block; margin-top:1.85rem; max-width:620px;
@@ -1229,9 +1260,9 @@
     <div class="container format-banner-content">
       <div class="format-toggle reveal" role="tablist">
         <div class="format-toggle-highlight" aria-hidden="true"></div>
-        <button type="button" class="format-toggle-btn active" data-panel="0" role="tab" aria-selected="true">Private Coaching</button>
-        <button type="button" class="format-toggle-btn" data-panel="1" role="tab" aria-selected="false">Group Sessions</button>
-        <button type="button" class="format-toggle-btn" data-panel="2" role="tab" aria-selected="false">Immersion Days</button>
+        <button type="button" class="format-toggle-btn active" data-panel="0" role="tab" aria-selected="true">One-to-One</button>
+        <button type="button" class="format-toggle-btn" data-panel="1" role="tab" aria-selected="false">Group</button>
+        <button type="button" class="format-toggle-btn" data-panel="2" role="tab" aria-selected="false">Immersion</button>
       </div>
       <div class="format-grid reveal">
         <div class="format-card is-active" data-panel="0">
@@ -1361,7 +1392,7 @@
       <a class="bento-cell bento-guide payhip-buy-button is-active" data-guide-panel="0" href="https://payhip.com/b/gTQtu" data-theme="none" data-product="gTQtu" target="_blank" rel="noopener">
         <div class="guide-copy">
           <span class="guide-part">Part One</span>
-          <h3 class="guide-title">Get Signed</h3>
+          <h3 class="guide-title">Breaking Into Modelling</h3>
           <p class="guide-desc">Learn exactly how agencies discover talent, build portfolios and choose who they represent.<br /><br />A complete roadmap from complete beginner to professionally signed model.</p>
           <span class="guide-cta">Explore Guide <span class="guide-cta-arrow">&rarr;</span></span>
         </div>
@@ -1369,7 +1400,7 @@
       <a class="bento-cell bento-guide payhip-buy-button" data-guide-panel="1" href="https://payhip.com/b/KExHF" data-theme="none" data-product="KExHF" target="_blank" rel="noopener">
         <div class="guide-copy">
           <span class="guide-part">Part Two</span>
-          <h3 class="guide-title">Looksmaxxing</h3>
+          <h3 class="guide-title">Elevated Appearance</h3>
           <p class="guide-desc">Learn the systems behind looking camera-ready every day &mdash; from grooming and physique to posture, styling and confidence.<br /><br />Everything that creates presence before you ever say a word.</p>
           <span class="guide-cta">Explore Guide <span class="guide-cta-arrow">&rarr;</span></span>
         </div>
@@ -1490,6 +1521,53 @@
       <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
     </a>
   </div>
+  <div class="menu-trusted">
+    <span class="menu-trusted-label">Trusted By</span>
+    <div class="menu-trusted-marquee partners-marquee">
+      <div class="partners-track">
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-10.png" alt="GQ Germany logo" /></div>
+          <span class="partner-name-inline">GQ GERMANY</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-11.png" alt="Financial Times logo" /></div>
+          <span class="partner-name-inline">FINANCIAL TIMES</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-12.png" alt="New Era logo" /></div>
+          <span class="partner-name-inline">NEW ERA</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-13.png" alt="Schweppes logo" /></div>
+          <span class="partner-name-inline">SCHWEPPES</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-10.png" alt="GQ Germany logo" /></div>
+          <span class="partner-name-inline">GQ GERMANY</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-11.png" alt="Financial Times logo" /></div>
+          <span class="partner-name-inline">FINANCIAL TIMES</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-12.png" alt="New Era logo" /></div>
+          <span class="partner-name-inline">NEW ERA</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+        <div class="partners-track-item">
+          <div class="partner-logo-chip"><img src="photo-13.png" alt="Schweppes logo" /></div>
+          <span class="partner-name-inline">SCHWEPPES</span>
+        </div>
+        <div class="partners-track-sep" aria-hidden="true">&#9670;</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- LIGHTBOX -->
@@ -1511,6 +1589,7 @@
       clearInterval(interval);
       setTimeout(() => {
         loader.classList.add('hidden');
+        window.scrollTo(0, 0);
         const heroEl = document.getElementById('hero');
         if (heroEl) heroEl.classList.add('hero-loaded');
       }, 400);
