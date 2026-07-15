@@ -566,12 +566,13 @@
     /* ── BOOKING / CONTACT FORM ── */
     .booking-form{ margin-top:3rem; max-width:640px; display:flex; flex-direction:column; gap:1.1rem; }
     .form-row{ display:flex; flex-direction:column; gap:1.1rem; }
-    .form-field{ flex:1; width:100%; display:flex; flex-direction:column; gap:0.4rem; }
+    .form-field{ flex:1; width:100%; min-width:0; display:flex; flex-direction:column; gap:0.4rem; }
     .form-field label{ font-family:var(--font-body); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--silver); text-align:center; }
     .form-field input, .form-field select, .form-field textarea{
       background:transparent; border:1px solid rgba(185,178,166,0.3); color:var(--white);
       padding:0.85rem 1.4rem; font-family:var(--font-body); font-size:0.9rem; letter-spacing:0.01em;
-      border-radius:22px; width:100%; transition:border-color 0.2s; text-align:center;
+      border-radius:22px; width:100%; min-width:0; max-width:100%; box-sizing:border-box;
+      transition:border-color 0.2s; text-align:center;
     }
     .form-field textarea{ border-radius:18px; }
     .form-field select{ appearance:none; cursor:pointer; }
@@ -1442,10 +1443,6 @@
             <option value="General Enquiry">Just saying hi / General enquiry</option>
           </select>
         </div>
-        <div class="form-field" id="bf-date-field">
-          <label for="bf-date">Preferred date <span style="opacity:.6;">(optional)</span></label>
-          <input type="date" id="bf-date" name="preferred_date" />
-        </div>
       </div>
       <div class="form-field">
         <label for="bf-phone">Phone <span style="opacity:.6;">(optional)</span></label>
@@ -1798,14 +1795,13 @@ window.addEventListener('resize',function(){
     var email = document.getElementById('bf-email').value.trim();
     var interest = document.getElementById('bf-interest').value;
     var phone = document.getElementById('bf-phone').value.trim();
-    var date = document.getElementById('bf-date').value;
     var message = document.getElementById('bf-message').value.trim();
 
     var isGeneral = interest === 'General Enquiry';
     var table = isGeneral ? 'contact_messages' : 'bookings';
     var payload = isGeneral
       ? { name: name, email: email, message: message }
-      : { name: name, email: email, phone: phone || null, preferred_date: date || null, service_type: interest, message: message };
+      : { name: name, email: email, phone: phone || null, service_type: interest, message: message };
 
     sb.from(table).insert([payload]).then(function (res) {
       submitBtn.disabled = false;
