@@ -7,15 +7,15 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zach Ekeke — Commercial Model & Personal Trainer | London</title>
+  <title>Zach Ekeke | Commercial Model & Personal Trainer | London</title>
   <meta name="description" content="London-based personal trainer and commercial model. Official website of Zach Ekeke." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Zach Ekeke — Commercial Model & Personal Trainer" />
+  <meta property="og:title" content="Zach Ekeke | Commercial Model & Personal Trainer" />
   <meta property="og:description" content="London-based commercial model & personal trainer. Editorial & campaign work for GQ, Financial Times, New Era and more." />
   <meta property="og:url" content="https://ekekezach.github.io/landing-page/" />
   <meta property="og:image" content="https://ekekezach.github.io/landing-page/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Zach Ekeke — Commercial Model & Personal Trainer" />
+  <meta name="twitter:title" content="Zach Ekeke | Commercial Model & Personal Trainer" />
   <meta name="twitter:description" content="London-based commercial model & personal trainer." />
   <meta name="twitter:image" content="https://ekekezach.github.io/landing-page/og-cover.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1080,15 +1080,9 @@
     /* subtle animated glow behind the payoff line */
     .hero-name-accent {
       display: inline-block;
-      color: var(--accent);
+      color: var(--white);
       font-style: italic;
-      background: linear-gradient(90deg, var(--accent) 0%, var(--white) 50%, var(--accent) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      animation: heroShine 6s ease-in-out infinite;
     }
-    @keyframes heroShine { 0%{ background-position:0% center; } 50%{ background-position:100% center; } 100%{ background-position:0% center; } }
-    @media (prefers-reduced-motion: reduce) { .hero-name-accent { animation: none; } }
   </style>
   <link rel="canonical" href="https://ekekezach.github.io/landing-page/" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -1241,8 +1235,8 @@
           It's a practice.
         </p>
         <blockquote class="about-quote reveal">
-          <p>"Your journey doesn't have to start perfectly. It just has to start. And when you do start — commit to becoming someone your future self will thank you for."</p>
-          <cite>&mdash; Zach Ekeke, Founder of Auraspan</cite>
+          <p>"Your journey doesn't have to start perfectly. It just has to start. And when you do start, commit to becoming someone your future self will thank you for."</p>
+          <cite>Zach Ekeke, Founder of Auraspan</cite>
         </blockquote>
       </div>
     </div>
@@ -1807,11 +1801,11 @@ window.addEventListener('resize',function(){
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
       if (res.error) {
-        statusEl.textContent = 'Something went wrong — please email bookings.zachekeke@gmail.com directly.';
+        statusEl.textContent = 'Something went wrong. Please email bookings.zachekeke@gmail.com directly.';
         statusEl.className = 'form-status error';
         return;
       }
-      statusEl.textContent = 'Thanks — I\'ll get back to you shortly.';
+      statusEl.textContent = 'Thanks! I\'ll get back to you shortly.';
       statusEl.className = 'form-status success';
       form.reset();
     });
