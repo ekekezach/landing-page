@@ -992,7 +992,7 @@
     .brand-mark{ width:1em; height:1em; flex-shrink:0; }
     .brand-word{ font-family:'Oswald', sans-serif; font-weight:400; font-size:0.58em; letter-spacing:0.24em; }
     /* ── WHAT WE DO ── */
-    .format-banner{ position:relative; overflow:hidden; padding:clamp(4.5rem,11vh,7rem) 0; }
+    .format-banner{ position:relative; overflow:hidden; padding:0.05rem 0 clamp(4.5rem,11vh,7rem); }
     .format-banner-img{
       position:absolute; inset:0; width:100%; height:100%;
       object-fit:cover; object-position:center 22%;
@@ -1078,7 +1078,105 @@
       color: var(--white);
       font-style: italic;
     }
-  </style>
+      /* ── RETURN TO FORM link (shows from 2 Nov 2026) ── */
+    .rtf-hidden{ display:none !important; }
+    .rtf-hero-pill{
+      display:inline-flex; align-items:center; margin-top:1.6rem;
+      padding:0.15rem 0.6rem; border:1px solid var(--accent); border-radius:20px;
+      background:var(--accent); text-decoration:none;
+      position:relative; z-index:3; transition:background .2s, border-color .2s;
+    }
+    .rtf-seg{
+      font-family:var(--font-body); font-size:0.6rem; letter-spacing:0.12em; font-weight:500; text-transform:uppercase;
+      padding:0.5rem 0.5rem; color:#0a0a0a; white-space:nowrap;
+    }
+    .rtf-seg-dot{ color:rgba(10,10,10,0.5); font-size:0.7rem; }
+    .rtf-hero-pill:hover{ background:var(--white); border-color:var(--white); }
+    #hero .rtf-hero-pill{ margin-top:4.2rem; opacity:0; transform:translateY(26px); transition:opacity 1.2s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1), border-color .2s, color .2s; }
+    #hero.hero-loaded .rtf-hero-pill{ opacity:1; transform:none; transition-delay:1s, 1s, 0s, 0s; }
+    @media (prefers-reduced-motion: reduce){ #hero .rtf-hero-pill{ opacity:1 !important; transform:none !important; } }
+    @media (max-width:400px){ .rtf-seg{ padding:0.5rem 0.35rem; font-size:0.56rem; } }
+    /* ── THE THREE PILLARS (tabs + one photo) ── */
+    #pillars{ background:var(--near-black); padding-top:clamp(3rem,7vh,5rem); text-align:center; }
+    .pillars-kicker{ padding-top:0; margin-bottom:0.6rem; }
+    .pillars-kicker h2.ghost-num{ font-weight:500; }
+    .pillars-title{ font-family:var(--font-display); font-weight:500; font-size:clamp(2rem,3.4vw,3rem); line-height:1.05; color:var(--white); margin:0 0 1.4rem; }
+    .pillar-tabs{ display:inline-flex; padding:0.15rem; border:1px solid rgba(185,178,166,0.25); border-radius:20px; background:rgba(255,255,255,0.02); margin-bottom:1.6rem; }
+    .pillar-tab{ font-family:var(--font-body); font-size:0.6rem; letter-spacing:0.12em; font-weight:500; text-transform:uppercase; color:var(--silver);
+      background:transparent; border:0; border-radius:16px; padding:0.55rem 1.1rem; cursor:pointer; transition:background .2s, color .2s; }
+    .pillar-tab:hover{ color:var(--white); }
+    .pillar-tab.is-active{ background:var(--accent); color:#0a0a0a; }
+    .pillar-tab:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+    .pillar-stage{ display:grid; max-width:640px; margin:0 auto; border:1px solid rgba(185,178,166,0.25); border-radius:18px; background:rgba(255,255,255,0.02); text-align:center; }
+    .pillar-panel{ grid-area:1/1; padding:clamp(1.8rem,4vw,2.8rem) clamp(1.4rem,4vw,3rem); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .pillar-panel[hidden]{ display:flex; visibility:hidden; }
+    .pillar-panel.is-active{ animation:pillarIn .6s ease; }
+    @keyframes pillarIn{ from{ opacity:0; } to{ opacity:1; } }
+    .pillar-kicker{ font-family:var(--font-body); font-size:0.58rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); }
+    .pillar-name{ font-family:var(--font-display); font-weight:500; font-size:clamp(2rem,4vw,2.8rem); line-height:1; color:var(--white); margin:0.5rem 0 0.9rem; }
+    .pillar-panel p{ font-family:var(--font-body); font-size:0.95rem; line-height:1.75; color:var(--silver); font-weight:300; margin:0 0 0.5rem; max-width:460px; }
+    .pillar-panel .pillar-benefit{ color:var(--white); font-weight:400; }
+    .pillar-link{ display:inline-block; margin-top:0.7rem; font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500;
+      color:#0a0a0a; background:var(--accent); border-radius:20px; padding:0.6rem 1.1rem; text-decoration:none; transition:background .2s; }
+    .pillar-link:hover{ background:var(--white); }
+    .pillars-cta{ margin-top:2rem; }
+    .pillars-cta .btn-primary{ display:inline-block; text-decoration:none; }
+    @media (max-width:760px){
+      .pillar-panel p{ font-size:0.88rem; }
+      .pillar-link{ white-space:nowrap; letter-spacing:0.08em; font-size:0.56rem; padding:0.6rem 0.9rem; }
+    }
+    @media (prefers-reduced-motion: reduce){ .pillar-panel.is-active{ animation:none; } }
+    a.menu-logo{ color:inherit; text-decoration:none; }
+    img{ color:transparent; }
+    /* ── Menus: grouped ── */
+    .nav-links{ overflow:visible !important; }
+    .nav-drop{ position:relative; }
+    .nav-drop-btn{
+      font-family:var(--font-body); font-size:0.6rem; letter-spacing:0.12em; font-weight:500; text-transform:uppercase;
+      color:var(--silver); background:transparent; border:0; cursor:pointer;
+      padding:0.5rem 0.9rem; border-radius:16px; transition:background .2s, color .2s;
+    }
+    .nav-drop-btn::after{ content:""; display:inline-block; width:5px; height:5px; margin-left:0.5rem; border-right:1px solid currentColor; border-bottom:1px solid currentColor; transform:translateY(-2px) rotate(45deg); opacity:0.7; }
+    .nav-drop-btn:hover, .nav-drop.open .nav-drop-btn{ color:var(--white); }
+    .nav-drop-btn.active{ background:var(--accent); color:#0a0a0a; }
+    .nav-drop-menu{
+      position:absolute; top:calc(100% + 0.6rem); left:50%; transform:translate(-50%,6px);
+      min-width:190px; display:flex; flex-direction:column; gap:0.1rem; padding:0.3rem;
+      background:rgba(10,10,10,0.94); border:1px solid rgba(185,178,166,0.25); border-radius:16px;
+      -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+      opacity:0; visibility:hidden; transition:opacity .2s, transform .2s, visibility .2s; z-index:10;
+    }
+    .nav-drop-menu::before{ content:""; position:absolute; left:0; right:0; top:-0.7rem; height:0.7rem; }
+    .nav-drop:hover .nav-drop-menu, .nav-drop:focus-within .nav-drop-menu, .nav-drop.open .nav-drop-menu{ opacity:1; visibility:visible; transform:translate(-50%,0); }
+    .nav-drop-menu a{ text-align:left; white-space:nowrap; }
+    .nav-drop-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+    #menu-overlay{ overflow-y:auto; justify-content:flex-start; padding-top:5.5rem; }
+    #menu-overlay{ background:#080808; }
+    .menu-bg{ position:fixed; }
+    .menu-bg::after{ background:rgba(6,6,6,0.86); }
+    .menu-nav-list{ margin-bottom:2.5rem; }
+    .menu-nav-list .menu-group{
+      display:block; width:max-content; align-self:flex-start; font-family:var(--font-body); font-size:0.52rem; letter-spacing:0.26em; font-weight:500; text-transform:uppercase;
+      color:var(--accent); background:rgba(185,178,166,0.12); border:1px solid rgba(185,178,166,0.25); border-radius:999px; padding:0.28rem 0.75rem; margin:1.6rem 0 0.6rem;
+    }
+    .menu-nav-list .menu-group:first-child{ margin-top:0; }
+    .menu-nav-list li:first-child a{ border-top:0; }
+    .menu-nav-list a{ padding:0.85rem 0 0.85rem 0.2rem; }
+    .menu-nav-list .menu-group + li a, .menu-nav-list .menu-group + li.rtf-hidden + li a{ border-top:1px solid rgba(255,255,255,0.06); }
+    /* section labels match What We Do */
+    #gallery .ghost-num, #services .ghost-num{ letter-spacing:0.42em; color:var(--accent); font-size:0.66rem; font-weight:500; margin:0; }
+    #gallery .section-kicker-line, #services .section-kicker-line{ margin:0.85rem auto 1.6rem; }
+    #contact .ghost-num{ letter-spacing:0.42em; color:var(--accent); font-size:0.66rem; font-weight:500; margin:0; }
+    #contact .section-kicker-line{ margin:0.85rem auto 0; }
+    #contact .booking-form{ margin-top:1.6rem; }
+    .footer-mission{ margin-top:0.5rem; color:var(--silver); max-width:280px; line-height:1.7; }
+    .wwd-cta{ text-align:center; margin-top:2.2rem; }
+    .wwd-cta .btn-primary{ display:inline-block; text-decoration:none; }
+    .wwd-connect-wrap{ text-align:center; margin-top:1.8rem; }
+    .wwd-connect{ display:inline-block; font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500;
+      color:#0a0a0a; background:var(--accent); border-radius:20px; padding:0.7rem 1.4rem; text-decoration:none; transition:background .2s; }
+    .wwd-connect:hover{ background:var(--white); }
+</style>
   <link rel="canonical" href="https://ekekezach.github.io/landing-page/" />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%275%27%20fill%3D%27%230a0a0a%27/%3E%3Ctext%20x%3D%2716%27%20y%3D%2721%27%20font-family%3D%27Georgia%2Cserif%27%20font-weight%3D%27600%27%20font-size%3D%2714%27%20letter-spacing%3D%270.5%27%20fill%3D%27%23C2A269%27%20text-anchor%3D%27middle%27%3EZE%3C/text%3E%3C/svg%3E" />
@@ -1164,11 +1262,21 @@
     <span class="brand-word">AURASPAN</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#what-we-do">What We Do</a></li>
-    <li><a href="#gallery">Work</a></li>
-    <li><a href="#services">Resources</a></li>
+    <li class="nav-drop">
+      <button type="button" class="nav-drop-btn" aria-expanded="false">Services</button>
+      <div class="nav-drop-menu">
+        <a href="#what-we-do">What We Do</a>
+        <a href="#services">Resources</a>
+        <a href="/return-to-form" class="rtf-live">Return to Form</a>
+      </div>
+    </li>
+    <li class="nav-drop">
+      <button type="button" class="nav-drop-btn" aria-expanded="false">About</button>
+      <div class="nav-drop-menu">
+        <a href="/about">About AURASPAN</a>
+        <a href="#gallery">Portfolio</a>
+      </div>
+    </li>
     <li><a href="#contact">Connect</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -1189,53 +1297,7 @@
   <div class="hero-eyebrow">Presence that lasts.</div>
   <div class="hero-eyebrow-line"></div>
   <h1 class="hero-name">YOU DON'T NEED TO BE A MODEL<br><span class="hero-name-accent">TO LOOK LIKE ONE</span></h1>
-  <p class="hero-role"><span>Helping people elevate how they look, feel and perform</span></p>
-  <div class="hero-socials">
-    <a href="https://www.instagram.com/zachekeke" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@zach.ekeke" target="_blank" rel="noopener" aria-label="TikTok">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-    </a>
-  </div>
-</section>
-
-<div class="section-connector" style="background:var(--near-black);"><div class="section-connector-line"></div></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <span class="ghost-num" aria-hidden="true">Profile</span>
-    <div class="section-kicker-line"></div>
-    <div class="about-grid-simple">
-      <figure class="about-photo reveal" role="img" aria-label="Zach Ekeke, founder of Auraspan">
-        <div class="about-photo-slideshow" aria-hidden="true">
-          <div class="about-photo-slide active" style="background-image:url('photo-02.jpg');"></div>
-          <div class="about-photo-slide" style="background-image:url('photo-14.jpg');"></div>
-        </div>
-        <div class="about-photo-overlay"></div>
-        <h2 class="section-title about-photo-title reveal"><span class="about-photo-title-kicker">About</span>Auraspan</h2>
-      </figure>
-      <div>
-        <p class="about-bio reveal">
-          Auraspan exists for people who believe that how you carry yourself changes everything.
-          <br /><br />
-          Founded by commercial model and coach Zach Ekeke, Auraspan combines the disciplines of physique, movement, appearance and personal standards into one philosophy for modern self-development.
-          <br /><br />
-          Working with brands including GQ Germany, Financial Times, New Era and Schweppes showed that confidence isn't something you're born with &mdash; it's something you build through consistent habits, attention to detail and high standards.
-          <br /><br />
-          Today, Auraspan turns those principles into coaching, experiences and resources that help people improve how they look, move, perform and present themselves.
-          <br /><br />
-          Because becoming your best self isn't a destination.<br />
-          It's a practice.
-        </p>
-        <blockquote class="about-quote reveal">
-          <p>"Your journey doesn't have to start perfectly. It just has to start. And when you do start, commit to becoming someone your future self will thank you for."</p>
-          <cite>Zach Ekeke, Founder of Auraspan</cite>
-        </blockquote>
-      </div>
-    </div>
-  </div>
+  <a href="/return-to-form" class="rtf-hero-pill rtf-live"><span class="rtf-seg">Return to Form</span><span class="rtf-seg-dot" aria-hidden="true">·</span><span class="rtf-seg">Free 6-week programme &rarr;</span></a>
 </section>
 
 <div class="section-connector" style="background:var(--near-black);"><div class="section-connector-line"></div></div>
@@ -1289,8 +1351,10 @@
           <p class="format-desc">Exclusive in-person experiences bringing together coaching, education and practical workshops designed to accelerate your physical and personal development.</p>
         </div>
       </div>
+      <div class="wwd-connect-wrap"><a href="#contact" class="wwd-connect" id="wwdConnect">Connect &rarr;</a></div>
     </div>
   </div>
+  <div class="container wwd-cta reveal"><a href="/about" class="btn-primary">About AURASPAN</a></div>
 </section>
 
 <div class="section-connector" style="background:var(--near-black);"><div class="section-connector-line"></div></div>
@@ -1298,9 +1362,8 @@
 <!-- GALLERY -->
 <section id="gallery">
   <div class="container">
-    <span class="ghost-num" aria-hidden="true">Work</span>
+    <h2 class="ghost-num">Portfolio</h2>
     <div class="section-kicker-line"></div>
-    <h2 class="section-title reveal">Portfolio</h2>
     <div class="gallery-carousel">
     <div class="gallery-grid reveal">
       <!-- Replace src URLs with your own images -->
@@ -1371,11 +1434,8 @@
 <!-- SERVICES -->
 <section id="services" style="background: var(--near-black); position: relative;">
   <div class="container">
-    <span class="ghost-num" aria-hidden="true">Resources</span>
+    <h2 class="ghost-num">Resources</h2>
     <div class="section-kicker-line"></div>
-    <h2 class="section-title reveal">Library</h2>
-    <p class="services-intro reveal">Everything I&rsquo;ve learned from building a career in front of the camera and helping others elevate themselves.</p>
-    <p class="services-intro reveal" style="margin-top:-1.75rem;">Practical frameworks, not motivation &mdash; to help you improve your appearance, confidence and opportunities.</p>
     <div class="guide-toggle reveal" role="tablist">
       <button type="button" class="guide-toggle-btn active" data-guide="0">Part One</button>
       <button type="button" class="guide-toggle-btn" data-guide="1">Part Two</button>
@@ -1406,9 +1466,8 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <span class="ghost-num" aria-hidden="true">Connect</span>
+    <h2 class="ghost-num">Connect</h2>
     <div class="section-kicker-line"></div>
-    <h2 class="section-title reveal">Get In Touch</h2>
 
     <form class="booking-form reveal" id="booking-form">
       <div class="form-row">
@@ -1463,7 +1522,7 @@
     </div>
     <ul class="footer-links">
       <li><a href="#contact">Connect</a></li>
-      <li><a href="https://claude.ai/public/artifacts/67e9d291-22aa-49e4-9cd4-76f0a4d86684" target="_blank" rel="noopener">Privacy</a></li>
+      <li><a href="/privacy">Privacy</a></li>
     </ul>
     <div class="footer-socials">
       <a href="https://www.instagram.com/zachekeke" target="_blank" rel="noopener" aria-label="Instagram">
@@ -1485,21 +1544,24 @@
     <img src="photo-06.jpg" alt="" />
     <img src="photo-09.jpg" alt="" />
   </div>
-  <div class="menu-logo brand-logo">
+  <a href="#hero" class="menu-logo brand-logo menu-link" aria-label="AURASPAN home">
     <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="4"/>
       <path d="M30 68 L50 25 L70 68" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <span class="brand-word">AURASPAN</span>
-  </div>
+  </a>
   <button class="menu-close" id="menuClose">✕</button>
   <ul class="menu-nav-list">
-    <li><a href="#hero" class="menu-link">Home</a></li>
-    <li><a href="#about" class="menu-link">About</a></li>
+    <li class="menu-group">Services</li>
     <li><a href="#what-we-do" class="menu-link">What We Do</a></li>
-    <li><a href="#gallery" class="menu-link">Work</a></li>
     <li><a href="#services" class="menu-link">Resources</a></li>
-    <li><a href="#contact" class="menu-link">Connect</a></li>
+    <li class="rtf-live"><a href="/return-to-form" class="menu-link">Return to Form</a></li>
+    <li class="menu-group">About</li>
+    <li><a href="/about" class="menu-link">About AURASPAN</a></li>
+    <li><a href="#gallery" class="menu-link">Portfolio</a></li>
+    <li class="menu-group">Connect</li>
+    <li><a href="#contact" class="menu-link">Get in Touch</a></li>
   </ul>
   <div class="menu-socials">
     <a href="https://www.instagram.com/zachekeke" target="_blank" rel="noopener" aria-label="Instagram">
@@ -1577,7 +1639,8 @@
       clearInterval(interval);
       setTimeout(() => {
         loader.classList.add('hidden');
-        window.scrollTo(0, 0);
+        var hashEl = null; try { hashEl = location.hash ? document.querySelector(location.hash) : null; } catch (e) {}
+        if (hashEl) hashEl.scrollIntoView(); else window.scrollTo(0, 0);
         const heroEl = document.getElementById('hero');
         if (heroEl) heroEl.classList.add('hero-loaded');
       }, 400);
@@ -1592,16 +1655,18 @@
   /* ── NAV ACTIVE PILL (scroll-spy) ── */
   const navPillLinks = [].slice.call(document.querySelectorAll('#navLinks a'));
   const navSections = navPillLinks
+    .filter(a => (a.getAttribute('href') || '').charAt(0) === '#')
     .map(a => ({ link: a, el: document.querySelector(a.getAttribute('href')) }))
     .filter(item => item.el);
 
   function updateActiveNav() {
     const marker = window.scrollY + window.innerHeight * 0.35;
-    let current = navSections[0];
+    let current = null;
     navSections.forEach(item => {
       if (item.el.offsetTop <= marker) current = item;
     });
     navPillLinks.forEach(a => a.classList.toggle('active', current && a === current.link));
+    document.querySelectorAll('#navLinks .nav-drop').forEach(d => d.querySelector('.nav-drop-btn').classList.toggle('active', !!d.querySelector('.nav-drop-menu a.active')));
   }
 
   window.addEventListener('scroll', () => {
@@ -1804,6 +1869,69 @@ window.addEventListener('resize',function(){
       statusEl.className = 'form-status success';
       form.reset();
     });
+  });
+})();
+</script>
+<script>
+/* ── RETURN TO FORM link: appears from Mon 2 Nov 2026. Add ?preview=1 to see it early. ── */
+(function(){
+  var LIVE_FROM = new Date('2026-09-01T00:00:00Z');
+  var live = new Date() >= LIVE_FROM || new URLSearchParams(location.search).has('preview');
+  document.querySelectorAll('.rtf-live').forEach(function(el){ el.classList.toggle('rtf-hidden', !live); });
+})();
+</script>
+<script>
+/* ── Pillar tabs ── */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.pillar-tab'));
+  function show(tab){
+    tabs.forEach(function(t){
+      var on=t===tab, panel=document.getElementById(t.getAttribute('aria-controls'));
+      t.classList.toggle('is-active',on); t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1;
+      panel.hidden=!on; panel.classList.toggle('is-active',on);
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){ show(t); });
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length]; show(n); n.focus(); }
+    });
+  });
+})();
+</script>
+<script>
+/* Hide any photo that fails to load, instead of showing its description text */
+(function(){
+  function hide(img){ img.style.visibility='hidden'; }
+  [].forEach.call(document.images,function(img){
+    if (img.complete && img.naturalWidth===0 && img.getAttribute('src')) hide(img);
+    img.addEventListener('error',function(){ hide(img); });
+  });
+})();
+</script>
+<script>
+/* ── Header dropdowns: hover on desktop, tap on touch screens ── */
+(function(){
+  var drops=[].slice.call(document.querySelectorAll('.nav-drop'));
+  function closeAll(except){ drops.forEach(function(d){ if(d!==except){ d.classList.remove('open'); d.querySelector('.nav-drop-btn').setAttribute('aria-expanded','false'); } }); }
+  drops.forEach(function(d){
+    var btn=d.querySelector('.nav-drop-btn');
+    btn.addEventListener('click',function(e){ e.stopPropagation(); var open=!d.classList.contains('open'); closeAll(d); d.classList.toggle('open',open); btn.setAttribute('aria-expanded',open?'true':'false'); });
+    d.querySelectorAll('.nav-drop-menu a').forEach(function(a){ a.addEventListener('click',function(){ closeAll(); }); });
+  });
+  document.addEventListener('click',function(){ closeAll(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeAll(); });
+})();
+</script>
+<script>
+/* ── What We Do: Connect button pre-selects the chosen service in the contact form ── */
+(function(){
+  var btn=document.getElementById('wwdConnect'); if(!btn) return;
+  var map={'0':'Private Coaching','1':'Group Sessions','2':'Immersion Days'};
+  btn.addEventListener('click',function(){
+    var card=document.querySelector('.format-card.is-active');
+    var sel=document.getElementById('bf-interest');
+    if(card && sel && map[card.getAttribute('data-panel')]) sel.value=map[card.getAttribute('data-panel')];
   });
 })();
 </script>

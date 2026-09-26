@@ -7,7 +7,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | AURASPAN</title>
+  <title>Return to Form | AURASPAN</title>
   <meta name="description" content="London-based personal trainer and commercial model. Official website of Zach Ekeke." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Zach Ekeke | Commercial Model & Personal Trainer" />
@@ -1172,24 +1172,75 @@
     .footer-mission{ margin-top:0.5rem; color:var(--silver); max-width:280px; line-height:1.7; }
     .wwd-cta{ text-align:center; margin-top:2.2rem; }
     .wwd-cta .btn-primary{ display:inline-block; text-decoration:none; }
-    /* ── Privacy page ── */
-    #privacy{ background:var(--near-black); }
-    .legal{ max-width:720px !important; }
-    .legal h1{ font-family:var(--font-display); font-weight:500; font-size:clamp(2.2rem,5vw,3.2rem); line-height:1.1; color:var(--white); margin:0 0 0.6rem; }
-    .legal .updated{ font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); margin:0 0 2.2rem; }
-    .legal .intro{ font-size:1.02rem; color:var(--light); }
-    .legal h2{ font-family:var(--font-body); font-size:0.66rem; letter-spacing:0.28em; text-transform:uppercase; font-weight:500; color:var(--accent);
-      margin:2.4rem 0 0.8rem; padding-top:1.4rem; border-top:1px solid rgba(185,178,166,0.15); }
-    .legal p, .legal li{ font-family:var(--font-body); font-size:0.95rem; line-height:1.8; color:var(--silver); font-weight:300; }
-    .legal p{ margin:0 0 0.9rem; }
-    .legal ul{ margin:0 0 0.9rem; padding-left:1.2rem; }
-    .legal li{ margin-bottom:0.4rem; }
-    .legal strong{ color:var(--white); font-weight:500; }
-    .legal a{ color:var(--white); text-underline-offset:3px; }
-    #privacy{ padding-top:calc(42px + 5.5rem + 2rem); }
-    @media (max-width:760px){ #privacy{ padding-top:calc(34px + 4.5rem + 1.5rem); } }
+    /* ── RETURN TO FORM (launch section) ── */
+    .rtf-hidden{ display:none !important; }
+    .rtf-hero-pill{
+      display:inline-flex; align-items:center; gap:0.7rem; margin-top:1.6rem;
+      padding:0.7rem 1.3rem; border:1px solid rgba(185,178,166,0.55); border-radius:999px;
+      font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--white); text-decoration:none; background:rgba(10,10,10,0.35);
+      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      position:relative; z-index:3; transition:border-color .2s, color .2s;
+    }
+    .rtf-hero-pill b{ color:var(--accent); font-weight:600; }
+    .rtf-hero-pill:hover{ border-color:var(--accent); color:var(--accent); }
+    #return-to-form .container{ text-align:center; }
+    .rtf-intro{ max-width:600px; margin:0 auto; font-family:var(--font-body); font-size:1rem; line-height:1.8; color:var(--silver); font-weight:300; }
+    .rtf-facts{ margin:1.6rem 0 0; font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--accent); }
+    .rtf-pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin:3rem auto 0; max-width:960px; }
+    .rtf-pillar{ background:var(--near-black); padding:2.2rem 1.6rem; display:flex; flex-direction:column; gap:0.7rem; align-items:center; }
+    .rtf-pillar-tag{ font-family:var(--font-body); font-size:0.58rem; letter-spacing:0.3em; color:var(--accent); text-transform:uppercase; }
+    .rtf-pillar-name{ font-family:var(--font-display); font-weight:500; font-size:2rem; line-height:1; color:var(--white); letter-spacing:0.04em; }
+    .rtf-pillar p{ font-family:var(--font-body); font-size:0.82rem; line-height:1.7; color:var(--silver); font-weight:300; margin:0; }
+    .rtf-pillar-partners{ margin-top:auto; padding-top:0.9rem; font-family:var(--font-body); font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--light); }
+    .rtf-steak{ max-width:960px; margin:1.5rem auto 0; border:1px solid rgba(185,178,166,0.35); padding:1.4rem 1.6rem; display:flex; flex-wrap:wrap; gap:0.4rem 1.2rem; justify-content:center; align-items:baseline; }
+    .rtf-steak-name{ font-family:var(--font-display); font-size:1.5rem; font-weight:500; color:var(--white); letter-spacing:0.06em; }
+    .rtf-steak p{ font-family:var(--font-body); font-size:0.82rem; color:var(--silver); margin:0; font-weight:300; }
+    #rtf-form{ margin:3.5rem auto 0; max-width:560px; display:flex; flex-direction:column; gap:1.1rem; text-align:center; }
+    #rtf-form fieldset{ border:0; padding:0; margin:0; min-width:0; }
+    #rtf-form legend{ font-family:var(--font-body); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--silver); margin:0 auto 0.6rem; }
+    .rtf-editions{ display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+    .rtf-edition{ position:relative; cursor:pointer; }
+    .rtf-edition input{ position:absolute; opacity:0; inset:0; margin:0; cursor:pointer; }
+    .rtf-edition span{ display:block; padding:0.9rem 1rem; border:1px solid rgba(185,178,166,0.3); border-radius:22px; font-family:var(--font-body); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light); transition:border-color .2s, background .2s, color .2s; }
+    .rtf-edition input:checked + span{ border-color:var(--accent); background:var(--accent); color:#0a0a0a; }
+    .rtf-edition input:focus-visible + span{ outline:2px solid var(--accent); outline-offset:3px; }
+    .rtf-check{ display:flex; gap:0.8rem; align-items:flex-start; text-align:left; font-family:var(--font-body); font-size:0.82rem; line-height:1.6; color:var(--light); font-weight:300; cursor:pointer; margin-top:0.7rem; }
+    .rtf-check input{ width:18px; height:18px; margin:0.15rem 0 0; flex-shrink:0; accent-color:var(--accent); cursor:pointer; }
+    .rtf-pack-note{ font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); text-align:left; margin:0.9rem 0 0 calc(18px + 0.8rem); }
+    #rtf-form .btn-primary{ margin:0.8rem auto 0; cursor:pointer; }
+    #rtf-form .btn-primary:disabled{ opacity:0.5; cursor:default; transform:none; }
+    .rtf-done h3{ font-family:var(--font-display); font-weight:500; font-size:1.9rem; color:var(--white); margin:0 0 0.6rem; }
+    .rtf-done p{ font-family:var(--font-body); font-size:0.9rem; line-height:1.7; color:var(--silver); margin:0; font-weight:300; }
+    .rtf-small{ max-width:560px; margin:1.6rem auto 0; font-family:var(--font-body); font-size:0.72rem; line-height:1.7; color:var(--muted); }
+    .rtf-small a{ color:var(--silver); text-underline-offset:3px; }
+    @media (max-width:760px){
+      .rtf-pillars{ grid-template-columns:1fr; }
+      .rtf-hero-pill{ font-size:0.55rem; letter-spacing:0.16em; padding:0.65rem 1.1rem; }
+    }
+    .rtf-pillar-line{ margin:1.4rem 0 0; font-family:var(--font-display); font-size:1.35rem; letter-spacing:0.08em; color:var(--white); }
+    .rtf-steak-line{ margin:0.9rem 0 0; font-family:var(--font-body); font-size:0.8rem; color:var(--silver); font-weight:300; }
+    .rtf-includes{ max-width:640px; margin:2rem auto 0; border:1px solid rgba(185,178,166,0.25); border-radius:18px; background:rgba(255,255,255,0.02); }
+    .rtf-inc{ padding:1.5rem clamp(1.2rem,4vw,2.4rem); }
+    .rtf-inc + .rtf-inc{ border-top:1px solid rgba(185,178,166,0.15); }
+    .rtf-inc-kicker{ font-family:var(--font-body); font-size:0.58rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); }
+    .rtf-inc-name{ font-family:var(--font-display); font-weight:500; font-size:1.9rem; line-height:1; color:var(--white); margin:0.4rem 0 0.6rem; }
+    .rtf-inc p{ font-family:var(--font-body); font-size:0.9rem; line-height:1.7; color:var(--silver); font-weight:300; margin:0 auto 0.35rem; max-width:480px; }
+    .rtf-inc .rtf-inc-benefit{ color:var(--white); font-weight:400; margin-bottom:0; }
+    .rtf-list{ list-style:none; max-width:520px; margin:2rem auto 0; padding:0; text-align:center; }
+    .rtf-list li{ display:flex; flex-direction:column; align-items:center; gap:0.3rem; }
+    .rtf-list li + li::before{ content:""; display:block; width:32px; height:1px; background:rgba(185,178,166,0.4); margin:1.1rem auto 1.2rem; }
+    .rtf-list-name{ font-family:var(--font-display); font-size:1.5rem; font-weight:500; line-height:1.1; color:var(--white); }
+    .rtf-list-desc{ font-family:var(--font-body); font-size:0.88rem; line-height:1.6; color:var(--silver); font-weight:300; max-width:420px; }
+    @media (max-width:420px){ #rtf-form .btn-primary{ letter-spacing:0.14em; padding:1.1rem 1rem; white-space:nowrap; } }
+    #return-to-form{ background:var(--near-black); }
+    #return-to-form .section-title{ font-size:clamp(2.4rem,5vw,3.6rem); margin:0 0 0.5em; }
+    #return-to-form{ padding-top:calc(42px + 5.5rem + 2rem); }
+    @media (max-width:760px){ #return-to-form{ padding-top:calc(34px + 4.5rem + 1.5rem); } }
+    .rtf-list-when{ font-family:var(--font-body); font-size:0.58rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); }
+    .rtf-how{ max-width:480px; margin:2rem auto 0; font-family:var(--font-body); font-size:0.9rem; line-height:1.7; color:var(--light); font-weight:300; }
 </style>
-  <link rel="canonical" href="https://auraspan.co/privacy" />
+  <link rel="canonical" href="https://auraspan.co/return-to-form" />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%275%27%20fill%3D%27%230a0a0a%27/%3E%3Ctext%20x%3D%2716%27%20y%3D%2721%27%20font-family%3D%27Georgia%2Cserif%27%20font-weight%3D%27600%27%20font-size%3D%2714%27%20letter-spacing%3D%270.5%27%20fill%3D%27%23C2A269%27%20text-anchor%3D%27middle%27%3EZE%3C/text%3E%3C/svg%3E" />
   <script type="application/ld+json">
@@ -1296,82 +1347,42 @@
   </button>
 </nav>
 
-<section id="privacy">
-  <div class="container legal">
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 26 September 2026</p>
+<section id="return-to-form">
+  <div class="container">
+    <span class="ghost-num" aria-hidden="true">AURASPAN</span>
+    <div class="section-kicker-line"></div>
+    <h1 class="section-title">Return to Form</h1>
+    <p class="rtf-intro">Your free 6-week plan from AURASPAN. Three workouts a week across three progressive phases, sent to your inbox as you go.</p>
+    <p class="rtf-facts">3 workouts a week &nbsp;·&nbsp; 6 weeks &nbsp;·&nbsp; free</p>
 
-    <p class="intro">This policy explains how AURASPAN collects and uses your personal information when you visit auraspan.co, sign up for Return to Form, book an AURASPAN event, buy a guide or get in touch.</p>
+    <p class="rtf-how">Choose the men&rsquo;s or women&rsquo;s plan, and your first phase arrives by email straight away. Each new phase follows every two weeks.</p>
 
-    <h2>Who we are</h2>
-    <p>AURASPAN is run by Zach Ekeke, a sole trader trading as AURASPAN, based in London, United Kingdom. AURASPAN is responsible for the personal information described in this policy (the "data controller").</p>
-    <p>For any privacy question or request, email <a href="mailto:connect@auraspan.co">connect@auraspan.co</a>.</p>
+    <form id="rtf-form" novalidate>
+      <div class="form-field">
+        <label for="rtf-name">First name</label>
+        <input id="rtf-name" name="first_name" autocomplete="given-name" placeholder="Your first name" required />
+      </div>
+      <div class="form-field">
+        <label for="rtf-email">Email</label>
+        <input id="rtf-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+      </div>
+      <fieldset>
+        <legend>Choose your programme</legend>
+        <div class="rtf-editions">
+          <label class="rtf-edition"><input type="radio" name="edition" value="mens" required><span>Men&rsquo;s</span></label>
+          <label class="rtf-edition"><input type="radio" name="edition" value="womens" required><span>Women&rsquo;s</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Stay connected (optional)</legend>
+        
+        <label class="rtf-check"><input type="checkbox" name="auraspan_marketing"><span>Yes, send me news from AURASPAN, including exclusive partner offers.</span></label>
+      </fieldset>
+      <button type="submit" class="btn-primary">Start Your Elevation Today</button>
+      <div class="form-status" id="rtf-status" role="status" aria-live="polite"></div>
+    </form>
 
-    <h2>What we collect</h2>
-    <p><strong>When you sign up for Return to Form:</strong> your first name, email address, which programme you chose (men's or women's) and whether you'd like to receive news and partner offers from AURASPAN.</p>
-    <p><strong>When you book an AURASPAN event:</strong> your name, email address, which sessions you've booked, your confirmation that you're fit to take part, and any dietary requirements you choose to share.</p>
-    <p><strong>When you get in touch through our contact form:</strong> your name, email address, what you're interested in, your message and, if you give it, your phone number.</p>
-    <p><strong>When you buy a guide:</strong> your name, email address and order details. Payment is handled by our checkout provider, and we never see your full card details.</p>
-    <p><strong>Automatically:</strong> our email provider records the IP address and approximate location you signed up from, and whether you open our emails or click the links in them.</p>
-    <p>We don't ask for detailed health information. The only health-related details we may hold are your confirmation that you're fit to take part in a class, and any dietary requirements you tell us about for an event.</p>
-
-    <h2>How we use it</h2>
-    <p><strong>To deliver what you asked for:</strong> sending your Return to Form programme, managing your event booking, delivering your guide, and replying to your enquiry. We rely on this being necessary to provide the service you requested.</p>
-    <p><strong>To run things properly:</strong> checking that emails are delivered, opened and clicked, so we can fix problems and improve what we send. We rely on our legitimate interest in running AURASPAN well.</p>
-    <p><strong>To send you news and partner offers, only if you ticked the box:</strong> we rely on your consent, and you can withdraw it at any time.</p>
-    <p><strong>Dietary requirements for events:</strong> we use these only to make sure the food served is suitable for you, and we rely on your explicit consent when you share them.</p>
-    <p>You never have to agree to marketing to get the free programme.</p>
-
-    <h2>Partner offers</h2>
-    <p>AURASPAN works with selected partners to offer exclusive discounts and experiences. If you've agreed to hear from us, we send you these offers ourselves, usually as a code to use with the partner. We don't give your details to our partners for their own marketing.</p>
-    <p>If you ask us to arrange something with a partner on your behalf, such as booking a session, we share only the details needed for that booking, and only with that partner. From that point, the partner is responsible for how it uses those details, under its own privacy policy.</p>
-
-    <h2>Events</h2>
-    <p>For AURASPAN events, we share dietary requirements only with the venue preparing the food, and only for that event. We delete dietary information within 30 days of the event.</p>
-
-    <h2>Who else handles your data</h2>
-    <p>We use trusted providers that process information on our behalf and only under our instructions:</p>
-    <ul>
-      <li>MailerLite, to store subscriber details and send our emails</li>
-      <li>Supabase, to store contact form messages and event bookings</li>
-      <li>Payhip, to sell and deliver our guides and take payment</li>
-      <li>GitHub, to host this website</li>
-      <li>Google Fonts, which supplies the fonts on this website and receives your IP address when a page loads</li>
-    </ul>
-    <p>Some of these providers may process data outside the UK. Where they do, they use legal safeguards approved under UK data protection law.</p>
-    <p>We never sell your personal information.</p>
-
-    <h2>Cookies</h2>
-    <p>This website doesn't use advertising or tracking cookies. If you buy a guide, our checkout provider may use cookies to process your order, as set out in its own policy.</p>
-
-    <h2>How long we keep it</h2>
-    <ul>
-      <li><strong>Return to Form:</strong> while your programme runs and for up to 12 months after it ends</li>
-      <li><strong>News and offers:</strong> until you unsubscribe, after which we keep only your email address on a suppression list so we don't contact you by mistake</li>
-      <li><strong>Event bookings:</strong> up to 12 months after the event, apart from dietary information, which we delete within 30 days</li>
-      <li><strong>Enquiries:</strong> up to 24 months after our last contact with you</li>
-      <li><strong>Purchases:</strong> as long as UK tax law requires, currently six years</li>
-    </ul>
-
-    <h2>Your rights</h2>
-    <p>Under UK data protection law you can:</p>
-    <ul>
-      <li>ask for a copy of the information we hold about you;</li>
-      <li>ask us to correct it, or to delete it;</li>
-      <li>object to us using it, or ask us to restrict how we use it;</li>
-      <li>ask for your information in a format you can take elsewhere;</li>
-      <li>withdraw your consent at any time.</li>
-    </ul>
-    <p>To use any of these rights, email <a href="mailto:connect@auraspan.co">connect@auraspan.co</a>. We'll reply within one month. You can also unsubscribe from our emails at any time using the link at the bottom of every email.</p>
-
-    <h2>Complaints</h2>
-    <p>If you're unhappy with how we've handled your information, please contact us first so we can put it right. You also have the right to complain to the Information Commissioner's Office, the UK's data protection regulator, at <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">ico.org.uk</a>.</p>
-
-    <h2>Who our services are for</h2>
-    <p>AURASPAN's programmes, events and guides are for adults aged 18 and over. We don't knowingly collect information from anyone under 18.</p>
-
-    <h2>Changes to this policy</h2>
-    <p>If we change this policy, we'll update the date at the top of this page. If a change significantly affects how we use your information, we'll tell you by email.</p>
+    <p class="rtf-small">By signing up, you agree to our <a href="/privacy">Privacy Policy</a>. The programme is free whether or not you tick a box. You can unsubscribe at any time.</p>
   </div>
 </section>
 
@@ -1742,6 +1753,72 @@ window.addEventListener('resize',function(){
   });
   document.addEventListener('click',function(){ closeAll(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeAll(); });
+})();
+</script>
+<script>
+/* ── RETURN TO FORM: dates, visibility and signup ──
+   Change these two dates if the plan moves. Times are UK time. */
+(function(){
+  var LIVE_FROM      = new Date('2026-11-02T00:00:00Z'); // section appears (Mon 2 Nov)
+  var AURASTEAK_ENDS = new Date('2026-12-14T00:00:00Z'); // AURASTEAK parts disappear after Sun 13 Dec
+  var MAILERLITE_URL = 'https://assets.mailerlite.com/jsonp/2656018/forms/199491925745600172/subscribe';
+
+  // Preview for testing: ?preview=1 shows the section now; ?preview=2026-12-20 pretends it's that date
+  var params = new URLSearchParams(location.search);
+  var preview = params.get('preview');
+  var now = new Date();
+  if (preview && /^\d{4}-\d{2}-\d{2}$/.test(preview)) now = new Date(preview + 'T12:00:00Z');
+  else if (preview) now = LIVE_FROM;
+
+  var live = true;
+  var steakOn = now < AURASTEAK_ENDS;
+
+  document.querySelectorAll('.rtf-steak-only').forEach(function(el){
+    el.classList.toggle('rtf-hidden', !steakOn);
+    if (!steakOn) el.querySelectorAll('input').forEach(function(i){ i.checked = false; i.disabled = true; });
+  });
+  if (!live) return;
+
+  var form = document.getElementById('rtf-form');
+  var status = document.getElementById('rtf-status');
+  var button = form.querySelector('button');
+
+  function fail(msg, field){
+    status.className = 'form-status error';
+    status.textContent = msg;
+    if (field) field.focus();
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.className = 'form-status'; status.textContent = '';
+    var name = form.first_name.value.trim();
+    var email = form.email.value.trim();
+    var edition = form.querySelector('input[name="edition"]:checked');
+    if (!name) return fail('Enter your first name.', form.first_name);
+    if (!email || !form.email.checkValidity()) return fail('Enter a valid email address.', form.email);
+    if (!edition) return fail('Choose the men\u2019s or women\u2019s programme.');
+
+    var data = new FormData();
+    data.append('fields[name]', name);
+    data.append('fields[email]', email);
+    data.append('fields[edition]', edition.value);
+    data.append('fields[campaign]', 'AURASPAN');
+    data.append('fields[auraspan_marketing]', form.auraspan_marketing.checked ? 'yes' : 'no');
+    data.append('fields[rex_marketing]', 'no');
+    data.append('ml-submit', '1');
+    data.append('anticsrf', 'true');
+
+    button.disabled = true; button.textContent = 'Sending\u2026';
+    fetch(MAILERLITE_URL, { method:'POST', body:data, mode:'no-cors' }).then(function(){
+      var safeName = name.replace(/[<>&"]/g, '');
+      var safeEmail = email.replace(/[<>&"]/g, '');
+      form.innerHTML = '<div class="rtf-done"><h3>You\u2019re in, ' + safeName + '.</h3><p>Your first week is on its way to ' + safeEmail + '. If it isn\u2019t in your inbox within a few minutes, check your Promotions and spam folders.</p></div>';
+    }).catch(function(){
+      button.disabled = false; button.textContent = 'Start Your Elevation Today';
+      fail('That didn\u2019t send. Check your connection and try again.');
+    });
+  });
 })();
 </script>
 </body>
