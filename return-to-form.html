@@ -1376,7 +1376,7 @@
       <fieldset>
         <legend>Stay connected (optional)</legend>
         
-        <label class="rtf-check"><input type="checkbox" name="auraspan_marketing"><span>Yes, send me news from AURASPAN, including exclusive partner offers.</span></label>
+        <label class="rtf-check"><input type="checkbox" name="auraspan_marketing"><span>Yes, send me news and offers from AURASPAN.</span></label>
       </fieldset>
       <button type="submit" class="btn-primary">Start Your Elevation Today</button>
       <div class="form-status" id="rtf-status" role="status" aria-live="polite"></div>
@@ -1805,7 +1805,6 @@ window.addEventListener('resize',function(){
     data.append('fields[edition]', edition.value);
     data.append('fields[campaign]', 'AURASPAN');
     data.append('fields[auraspan_marketing]', form.auraspan_marketing.checked ? 'yes' : 'no');
-    data.append('fields[rex_marketing]', 'no');
     data.append('ml-submit', '1');
     data.append('anticsrf', 'true');
 
