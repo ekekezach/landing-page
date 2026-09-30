@@ -1829,14 +1829,34 @@ window.addEventListener('resize',function(){
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 (function(){
-  var SUPABASE_URL = 'https://oqxbmonyqsftefuywhvb.supabase.co';
-  var SUPABASE_ANON_KEY = 'sb_publishable_4XBJBRWRUnAJDJTpd94p8A_SCoqqwVH';
-  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // Website Connect form -> MailerLite ("Website Connect form").
+  // Each option adds the person to its Connect group, which starts that group's automation.
+  var ML_URL = 'https://assets.mailerlite.com/jsonp/2656018/forms/200026584589009950/subscribe';
+  var ALL_ENQUIRIES = '200026612576552295';
+  var GROUPS = {
+    'Private Coaching': '199987056217163551',
+    'Group Sessions': '199987073024788237',
+    'Immersion Days': '199987078852773288',
+    'General Enquiry': '199987084778276505'
+  };
 
   var form = document.getElementById('booking-form');
   if (!form) return;
   var statusEl = document.getElementById('bf-status');
   var submitBtn = document.getElementById('bf-submit');
+
+  function done(ok) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+    if (!ok) {
+      statusEl.textContent = 'Something went wrong. Please email connect@auraspan.co directly.';
+      statusEl.className = 'form-status error';
+      return;
+    }
+    statusEl.textContent = 'Thanks! I\'ll get back to you shortly.';
+    statusEl.className = 'form-status success';
+    form.reset();
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1847,28 +1867,25 @@ window.addEventListener('resize',function(){
 
     var name = document.getElementById('bf-name').value.trim();
     var email = document.getElementById('bf-email').value.trim();
-    var interest = document.getElementById('bf-interest').value;
+    var interest = document.getElementById('bf-interest').value || 'General Enquiry';
     var phone = document.getElementById('bf-phone').value.trim();
     var message = document.getElementById('bf-message').value.trim();
 
-    var isGeneral = interest === 'General Enquiry';
-    var table = isGeneral ? 'contact_messages' : 'bookings';
-    var payload = isGeneral
-      ? { name: name, email: email, message: message }
-      : { name: name, email: email, phone: phone || null, service_type: interest, message: message };
+    var fd = new FormData();
+    fd.append('fields[email]', email);
+    fd.append('fields[name]', name);
+    if (phone) fd.append('fields[phone]', phone);
+    fd.append('fields[enquiry_interest]', interest);
+    fd.append('fields[enquiry_message]', message);
+    fd.append('groups[]', ALL_ENQUIRIES);
+    fd.append('groups[]', GROUPS[interest] || GROUPS['General Enquiry']);
+    fd.append('ml-submit', '1');
+    fd.append('anticsrf', 'true');
 
-    sb.from(table).insert([payload]).then(function (res) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-      if (res.error) {
-        statusEl.textContent = 'Something went wrong. Please email bookings.zachekeke@gmail.com directly.';
-        statusEl.className = 'form-status error';
-        return;
-      }
-      statusEl.textContent = 'Thanks! I\'ll get back to you shortly.';
-      statusEl.className = 'form-status success';
-      form.reset();
-    });
+    fetch(ML_URL, { method: 'POST', body: fd })
+      .then(function (r) { return r.json(); })
+      .then(function (d) { done(d && d.success); })
+      .catch(function () { done(false); });
   });
 })();
 </script>
