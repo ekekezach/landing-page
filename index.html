@@ -1183,6 +1183,20 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Zach Ekeke","jobTitle":"Commercial Model & Personal Trainer","url":"https://ekekezach.github.io/landing-page/","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.instagram.com/auraspan.co/"]}
   </script>
+<style id="auraspan-refinements">
+/* Return to Form hero button: dark glass, fills stone on hover/tap */
+.rtf-hero-pill{ background:rgba(10,10,10,0.38) !important; border:1px solid rgba(185,178,166,0.7) !important; border-radius:999px !important; padding:0.3rem 1.1rem !important; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); transition:opacity 1.2s cubic-bezier(.16,1,.3,1), transform .35s cubic-bezier(.16,1,.3,1), background-color .35s ease, border-color .35s ease, box-shadow .35s ease !important; }
+.rtf-hero-pill .rtf-seg{ color:#f1ece4 !important; transition:color .35s ease; }
+.rtf-hero-pill .rtf-seg-dot{ color:rgba(185,178,166,0.85) !important; transition:color .35s ease; }
+.rtf-hero-pill .rtf-arrow{ display:inline-block; margin-left:0.25em; transition:transform .35s cubic-bezier(.16,1,.3,1); }
+.rtf-hero-pill:hover, .rtf-hero-pill:focus-visible, .rtf-hero-pill:active{ background-color:var(--accent) !important; border-color:var(--accent) !important; transform:translateY(-2px) !important; box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+.rtf-hero-pill:hover .rtf-seg, .rtf-hero-pill:focus-visible .rtf-seg, .rtf-hero-pill:active .rtf-seg{ color:#0a0a0a !important; }
+.rtf-hero-pill:hover .rtf-seg-dot, .rtf-hero-pill:focus-visible .rtf-seg-dot, .rtf-hero-pill:active .rtf-seg-dot{ color:rgba(10,10,10,0.5) !important; }
+.rtf-hero-pill:hover .rtf-arrow, .rtf-hero-pill:focus-visible .rtf-arrow{ transform:translateX(4px); }
+/* Tighter spacing between main page sections */
+#what-we-do, #gallery, #services, #contact{ padding-top:clamp(2.5rem, 5vh, 4rem) !important; padding-bottom:clamp(3rem, 6vh, 4.5rem) !important; }
+.section-connector{ padding:0.5rem 0 !important; }
+</style>
 </head>
 <body>
 
@@ -1297,7 +1311,7 @@
   <div class="hero-eyebrow">Presence that lasts.</div>
   <div class="hero-eyebrow-line"></div>
   <h1 class="hero-name">YOU DON'T NEED TO BE A MODEL<br><span class="hero-name-accent">TO LOOK LIKE ONE</span></h1>
-  <a href="/return-to-form" class="rtf-hero-pill rtf-live"><span class="rtf-seg">Return to Form</span><span class="rtf-seg-dot" aria-hidden="true">·</span><span class="rtf-seg">Free 6-week programme &rarr;</span></a>
+  <a href="/return-to-form" class="rtf-hero-pill rtf-live"><span class="rtf-seg">Return to Form</span><span class="rtf-seg-dot" aria-hidden="true">·</span><span class="rtf-seg">Free 6-week programme <span class="rtf-arrow" aria-hidden="true">&rarr;</span></span></a>
 </section>
 
 <div class="section-connector" style="background:var(--near-black);"><div class="section-connector-line"></div></div>
