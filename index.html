@@ -1893,6 +1893,7 @@ window.addEventListener('resize',function(){
     if (phone) fd.append('fields[phone]', phone);
     fd.append('fields[enquiry_interest]', interest);
     fd.append('fields[enquiry_message]', message);
+      fd.append('fields[auraspan_marketing]', document.getElementById('bf-marketing').checked ? 'yes' : 'no');
     fd.append('groups[]', ALL_ENQUIRIES);
     fd.append('groups[]', GROUPS[interest] || GROUPS['General Enquiry']);
     fd.append('ml-submit', '1');
