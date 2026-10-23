@@ -1200,6 +1200,14 @@
 /* Tighter spacing between main page sections */
 #what-we-do, #gallery, #services, #contact{ padding-top:clamp(2.5rem, 5vh, 4rem) !important; padding-bottom:clamp(3rem, 6vh, 4.5rem) !important; }
 .section-connector{ padding:0.5rem 0 !important; }
+/* HERO: Activate your aura */
+#hero .hero-name{ text-transform:uppercase; letter-spacing:0.04em; }
+.hero-pillars-line{ margin:1.4rem auto 1.1rem; }
+.hero-pillars{ max-width:none !important; padding:0 !important; display:flex; justify-content:center; flex-wrap:wrap; position:relative; z-index:2; text-transform:uppercase; color:#B9B2A6; text-shadow:0 1px 16px rgba(0,0,0,1); }
+.hero-pillars span{ padding:0.15rem 1.1rem; color:#B9B2A6; }
+.hero-pillars span + span{ border-left:1px solid rgba(185,178,166,0.35); }
+@media (max-width:600px){ .hero-pillars span{ padding:0.15rem 0.7rem; font-size:0.62rem; } }
+@media (max-width:380px){ .hero-pillars span{ padding:0.15rem 0.5rem; letter-spacing:0.1em; } }
 </style>
 </head>
 <body>
@@ -1312,9 +1320,9 @@
   <div class="hero-bg-overlay"></div>
   <div class="hero-fade-bottom"></div>
   <div class="hero-seam-blur"></div>
-  <div class="hero-eyebrow">Presence that lasts.</div>
-  <div class="hero-eyebrow-line"></div>
-  <h1 class="hero-name">YOU DON'T NEED TO BE A MODEL<br><span class="hero-name-accent">TO LOOK LIKE ONE</span></h1>
+  <h1 class="hero-name">ACTIVATE YOUR AURA</h1>
+  <div class="hero-eyebrow-line hero-pillars-line"></div>
+  <div class="hero-role hero-pillars"><span>Form better</span><span>Fuel better</span><span>Focus better</span></div>
   <a href="/return-to-form" class="rtf-hero-pill rtf-live"><span class="rtf-seg">Return to Form</span><span class="rtf-seg-dot" aria-hidden="true">·</span><span class="rtf-seg">Free 6-week programme <span class="rtf-arrow" aria-hidden="true">&rarr;</span></span></a>
 </section>
 
